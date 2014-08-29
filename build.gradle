@@ -1,0 +1,36 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'jetty'
+apply plugin: 'eclipse'
+
+group = 'com.thedeanda'
+version = '1.0-SNAPSHOT'
+
+description = """sample rest service using jersey and guice."""
+
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+}
+dependencies {
+	compile 'com.google.inject:guice:3.0'
+	compile 'org.slf4j:slf4j-api:1.+'
+	compile 'org.slf4j:slf4j-simple:1.+'
+
+	compile 'com.sun.jersey:jersey-core:1.18+'
+	compile 'com.sun.jersey:jersey-server:1.18+'
+	compile 'com.sun.jersey:jersey-client:1.18+'
+	compile 'com.sun.jersey:jersey-servlet:1.18+'
+	compile 'com.sun.jersey:jersey-json:1.18+'
+	compile 'com.sun.jersey:jersey-grizzly2:1.18+'
+	compile 'com.sun.jersey.contribs:jersey-guice:1.18+'
+	//compile 'javax.servlet:javax.servlet-api:3+'
+	compile 'javax.servlet:servlet-api:2.5'
+
+	testCompile 'junit:junit:4.+'
+}
+jettyRun {
+	contextPath '/'
+}
+
